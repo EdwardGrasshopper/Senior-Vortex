@@ -1,99 +1,97 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <!-- saved from url=(0062)https://webkit.org/blog-files/3d-transforms/poster-circle.html -->
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Senior Vortex</title>
 
-    <meta
-      name="viewport"
-      content="initial-scale=0.60, minimum-scale=0.60, maximum-scale=0.60"
-    />
-    <style type="text/css">
-      body {
-        font-family: "Lucida Grande", Verdana, Arial;
-        font-size: 12px;
-      }
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Senior Vortex</title>
 
-      #stage {
-        margin: 150px auto;
-        width: 600px;
-        height: 400px;
-        /*
+  <meta name="viewport" content="initial-scale=0.60, minimum-scale=0.60, maximum-scale=0.60" />
+  <style type="text/css">
+    body {
+      font-family: "Lucida Grande", Verdana, Arial;
+      font-size: 12px;
+    }
+
+    #stage {
+      margin: 150px auto;
+      width: 600px;
+      height: 400px;
+      /*
         
         Setting the perspective of the contents of the stage
         but not the stage itself
         
         */
-        -webkit-perspective: 800;
-      }
+      -webkit-perspective: 800;
+    }
 
-      #rotate {
-        margin: 0 auto;
-        width: 600px;
-        height: 400px;
-        /* Ensure that we're in 3D space */
-        -webkit-transform-style: preserve-3d;
-        /*
+    #rotate {
+      margin: 0 auto;
+      width: 600px;
+      height: 400px;
+      /* Ensure that we're in 3D space */
+      -webkit-transform-style: preserve-3d;
+      /*
         Make the whole set of rows use the x-axis spin animation
         for a duration of 7 seconds, running infinitely and linearly
         */
-        -webkit-animation-name: x-spin;
-        -webkit-animation-duration: 7s;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: linear;
-      }
+      -webkit-animation-name: x-spin;
+      -webkit-animation-duration: 7s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+    }
 
-      .ring {
-        margin: 0 auto;
-        height: 110px;
-        width: 600px;
-        -webkit-transform-style: preserve-3d;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: linear;
-      }
+    .ring {
+      margin: 0 auto;
+      height: 110px;
+      width: 600px;
+      -webkit-transform-style: preserve-3d;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+    }
 
-      .ring > :nth-child(odd) {
-        background-color: #995c7f;
-      }
+    .ring> :nth-child(odd) {
+      background-color: #995c7f;
+    }
 
-      .ring > :nth-child(even) {
-        background-color: #835a99;
-      }
+    .ring> :nth-child(even) {
+      background-color: #835a99;
+    }
 
-      .poster {
-        position: absolute;
-        left: 250px;
-        width: 100px;
-        height: 100px;
-        opacity: 0.7;
-        color: rgba(0, 0, 0, 0.9);
-        -webkit-border-radius: 10px;
-      }
+    .poster {
+      position: absolute;
+      left: 250px;
+      width: 100px;
+      height: 100px;
+      opacity: 0.7;
+      color: rgba(0, 0, 0, 0.9);
+      -webkit-border-radius: 10px;
+    }
 
-      .poster > p {
-        font-family: "Georgia", serif;
-        font-size: 36px;
-        font-weight: bold;
-        text-align: center;
-        margin-top: 28px;
-      }
+    .poster>p {
+      font-family: "Georgia", serif;
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 28px;
+    }
 
-      /*
+    /*
       Set up each row to have a different animation duration
       and alternating y-axis rotation directions.
       */
-      #ring-1 {
-        -webkit-animation-name: y-spin;
-        -webkit-animation-duration: 40s;
-      }
+    #ring-1 {
+      -webkit-animation-name: y-spin;
+      -webkit-animation-duration: 40s;
+    }
 
-      #ring-2 {
-        -webkit-animation-name: back-y-spin;
-        -webkit-animation-duration: 36s;
-      }
+    #ring-2 {
+      -webkit-animation-name: back-y-spin;
+      -webkit-animation-duration: 36s;
+    }
 
-      /*
+    /*
 
       Here we define each of the three individual animations that
       we will be using to have our 3D rotation effect. The first
@@ -107,1272 +105,593 @@
       constructs.
 
       */
-      @-webkit-keyframes x-spin {
-        0% {
-          -webkit-transform: rotateX(0deg);
-        }
-        50% {
-          -webkit-transform: rotateX(180deg);
-        }
-        100% {
-          -webkit-transform: rotateX(360deg);
-        }
+    @-webkit-keyframes x-spin {
+      0% {
+        -webkit-transform: rotateX(0deg);
       }
 
-      @-webkit-keyframes y-spin {
-        0% {
-          -webkit-transform: rotateY(0deg);
-        }
-        50% {
-          -webkit-transform: rotateY(180deg);
-        }
-        100% {
-          -webkit-transform: rotateY(360deg);
-        }
+      50% {
+        -webkit-transform: rotateX(180deg);
       }
 
-      @-webkit-keyframes back-y-spin {
-        0% {
-          -webkit-transform: rotateY(360deg);
-        }
-        50% {
-          -webkit-transform: rotateY(180deg);
-        }
-        100% {
-          -webkit-transform: rotateY(0deg);
-        }
+      100% {
+        -webkit-transform: rotateX(360deg);
       }
-    </style>
+    }
 
-    <script type="text/javascript">
-      const POSTERS_PER_ROW = 31;
-      const RING_RADIUS = 516.666666;
-
-      function setup_posters(row) {
-        var posterAngle = 360 / POSTERS_PER_ROW;
-        for (var i = 0; i < POSTERS_PER_ROW; i++) {
-          var poster = document.createElement("div");
-          poster.className = "poster";
-          // compute and assign the transform for this poster
-          var transform =
-            "rotateY(" +
-            posterAngle * i +
-            "deg) translateZ(" +
-            RING_RADIUS +
-            "px)";
-          poster.style.webkitTransform = transform;
-          // setup the number to show inside the poster
-
-        }
+    @-webkit-keyframes y-spin {
+      0% {
+        -webkit-transform: rotateY(0deg);
       }
 
-      function init() {
-        setup_posters(document.getElementById("ring-1"));
-        setup_posters(document.getElementById("ring-2"));
-        setup_posters(document.getElementById("ring-3"));
+      50% {
+        -webkit-transform: rotateY(180deg);
       }
 
-      // call init once the document is fully loaded
-      window.addEventListener("load", init, false);
-    </script>
-  </head>
+      100% {
+        -webkit-transform: rotateY(360deg);
+      }
+    }
 
-  <body>
-    <h1>Senior Vortex</h1>
+    @-webkit-keyframes back-y-spin {
+      0% {
+        -webkit-transform: rotateY(360deg);
+      }
 
-    This is a simple example of how to use CSS transformation and animations to
-    get interesting-looking behavior. The two rings are constructed using a
+      50% {
+        -webkit-transform: rotateY(180deg);
+      }
+
+      100% {
+        -webkit-transform: rotateY(0deg);
+      }
+    }
+  </style>
+
+  <script type="text/javascript">
+    const POSTERS_PER_ROW = 31;
+    const RING_RADIUS = 516.666666;
+
+    function setup_posters(row) {
+      var posterAngle = 360 / POSTERS_PER_ROW;
+      for (var i = 0; i < POSTERS_PER_ROW; i++) {
+        var poster = document.createElement("div");
+        poster.className = "poster";
+        // compute and assign the transform for this poster
+        var transform =
+          "rotateY(" +
+          posterAngle * i +
+          "deg) translateZ(" +
+          RING_RADIUS +
+          "px)";
+        poster.style.webkitTransform = transform;
+        // setup the number to show inside the poster
+      }
+    }
+
+    function init() {
+      setup_posters(document.getElementById("ring-1"));
+      setup_posters(document.getElementById("ring-2"));
+      setup_posters(document.getElementById("ring-3"));
+    }
+
+    // call init once the document is fully loaded
+    window.addEventListener("load", init, false);
+  </script>
+</head>
+
+<body>
+  <h1>Senior Vortex</h1>
+
+  <p>
+    This is a simple example of how to use CSS transformation and animations
+    to get interesting-looking behavior. The two rings are constructed using a
     simple JavaScript function that creates elements and assigns them a
-    transform that describes their position in the ring. CSS animations are then
-    used to rotate each ring, and to spin the containing element around too.
-    Note that you can still select the pictures on the ring; everything remains
-    clickable.
-
-    <div id="stage">
-      <div id="rotate">
-        <div id="ring-1" class="ring">
-          <div
-            class="poster"
-            style="transform: rotateY(0deg) translateZ(516.667px);"
-          >
-            <img
-              class="block"
-              id="u17609_img"
-              data-src="http://mastfiu.dadeschools.net/images/2060001-crop-u17609.jpg?crc=206681373"
-              src="http://mastfiu.dadeschools.net/images/2060001-crop-u17609.jpg?crc=206681373"
-              alt=""
-              data-width="100"
-              data-height="100"
-              data-muse-src="http://mastfiu.dadeschools.net/images/2060001-crop-u17609.jpg?crc=206681373"
-              data-widget-id="slideshowu17589"
-              style=""
-              width="100"
-              height="100"
-            />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(11.6129deg) translateZ(516.667px);"
-          >
-            <img
-              class="block"
-              id="u18121_img"
-              data-src="http://mastfiu.dadeschools.net/images/2060002-crop-u18121.jpg?crc=270179016"
-              src="http://mastfiu.dadeschools.net/images/2060002-crop-u18121.jpg?crc=270179016"
-              alt=""
-              data-width="100"
-              data-height="100"
-              data-muse-src="http://mastfiu.dadeschools.net/images/2060002-crop-u18121.jpg?crc=270179016"
-              data-widget-id="slideshowu17589"
-              style=""
-              width="100"
-              height="100"
-            />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(23.2258deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18141_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060003-crop-u18141.jpg?crc=4140046663"
-          src="http://mastfiu.dadeschools.net/images/2060003-crop-u18141.jpg?crc=4140046663"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060003-crop-u18141.jpg?crc=4140046663"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(34.8387deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18161_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060004-crop-u18161.jpg?crc=4115633752"
-          src="http://mastfiu.dadeschools.net/images/2060004-crop-u18161.jpg?crc=4115633752"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060004-crop-u18161.jpg?crc=4115633752"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(46.4516deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18181_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060005-crop-u18181.jpg?crc=4020391790"
-          src="http://mastfiu.dadeschools.net/images/2060005-crop-u18181.jpg?crc=4020391790"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060005-crop-u18181.jpg?crc=4020391790"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(58.0645deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18201_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060006-crop-u18201.jpg?crc=451000701"
-          src="http://mastfiu.dadeschools.net/images/2060006-crop-u18201.jpg?crc=451000701"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060006-crop-u18201.jpg?crc=451000701"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(69.6774deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18221_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060007-crop-u18221.jpg?crc=4071192821"
-          src="http://mastfiu.dadeschools.net/images/2060007-crop-u18221.jpg?crc=4071192821"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060007-crop-u18221.jpg?crc=4071192821"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(81.2903deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18241_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060008-crop-u18241.jpg?crc=4042438795"
-          src="http://mastfiu.dadeschools.net/images/2060008-crop-u18241.jpg?crc=4042438795"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060008-crop-u18241.jpg?crc=4042438795"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(92.9032deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18261_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060009-crop-u18261.jpg?crc=349101498"
-          src="http://mastfiu.dadeschools.net/images/2060009-crop-u18261.jpg?crc=349101498"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060009-crop-u18261.jpg?crc=349101498"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(104.516deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18281_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060010-crop-u18281.jpg?crc=3942958679"
-          src="http://mastfiu.dadeschools.net/images/2060010-crop-u18281.jpg?crc=3942958679"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060010-crop-u18281.jpg?crc=3942958679"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(116.129deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18301_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060012-crop-u18301.jpg?crc=3797951026"
-          src="http://mastfiu.dadeschools.net/images/2060012-crop-u18301.jpg?crc=3797951026"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060012-crop-u18301.jpg?crc=3797951026"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(127.742deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18321_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060013-crop-u18321.jpg?crc=4063520524"
-          src="http://mastfiu.dadeschools.net/images/2060013-crop-u18321.jpg?crc=4063520524"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060013-crop-u18321.jpg?crc=4063520524"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(139.355deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18341_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060014-crop-u18341.jpg?crc=189994473"
-          src="http://mastfiu.dadeschools.net/images/2060014-crop-u18341.jpg?crc=189994473"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060014-crop-u18341.jpg?crc=189994473"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(150.968deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18361_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060015-crop-u18361.jpg?crc=250933679"
-          src="http://mastfiu.dadeschools.net/images/2060015-crop-u18361.jpg?crc=250933679"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060015-crop-u18361.jpg?crc=250933679"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(162.581deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18381_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060016-crop-u18381.jpg?crc=4243793077"
-          src="http://mastfiu.dadeschools.net/images/2060016-crop-u18381.jpg?crc=4243793077"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060016-crop-u18381.jpg?crc=4243793077"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(174.194deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18401_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060017-crop-u18401.jpg?crc=4040187597"
-          src="http://mastfiu.dadeschools.net/images/2060017-crop-u18401.jpg?crc=4040187597"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060017-crop-u18401.jpg?crc=4040187597"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(185.806deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18421_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060018-crop-u18421.jpg?crc=4203836874"
-          src="http://mastfiu.dadeschools.net/images/2060018-crop-u18421.jpg?crc=4203836874"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060018-crop-u18421.jpg?crc=4203836874"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(197.419deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18441_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060019-crop-u18441.jpg?crc=366407717"
-          src="http://mastfiu.dadeschools.net/images/2060019-crop-u18441.jpg?crc=366407717"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060019-crop-u18441.jpg?crc=366407717"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(209.032deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18461_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060020-crop-u18461.jpg?crc=3841045738"
-          src="http://mastfiu.dadeschools.net/images/2060020-crop-u18461.jpg?crc=3841045738"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060020-crop-u18461.jpg?crc=3841045738"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(220.645deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18481_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060021-crop-u18481.jpg?crc=16343325"
-          src="http://mastfiu.dadeschools.net/images/2060021-crop-u18481.jpg?crc=16343325"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060021-crop-u18481.jpg?crc=16343325"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(232.258deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18501_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060022-crop-u18501.jpg?crc=452310828"
-          src="http://mastfiu.dadeschools.net/images/2060022-crop-u18501.jpg?crc=452310828"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060022-crop-u18501.jpg?crc=452310828"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(243.871deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18521_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060023-crop-u18521.jpg?crc=3863286488"
-          src="http://mastfiu.dadeschools.net/images/2060023-crop-u18521.jpg?crc=3863286488"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060023-crop-u18521.jpg?crc=3863286488"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(255.484deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18541_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060024-crop-u18541.jpg?crc=423376621"
-          src="http://mastfiu.dadeschools.net/images/2060024-crop-u18541.jpg?crc=423376621"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060024-crop-u18541.jpg?crc=423376621"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(267.097deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18561_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060026-crop-u18561.jpg?crc=4104295946"
-          src="http://mastfiu.dadeschools.net/images/2060026-crop-u18561.jpg?crc=4104295946"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060026-crop-u18561.jpg?crc=4104295946"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(278.71deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18581_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060027-crop-u18581.jpg?crc=442576626"
-          src="http://mastfiu.dadeschools.net/images/2060027-crop-u18581.jpg?crc=442576626"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060027-crop-u18581.jpg?crc=442576626"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(290.323deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18601_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060028-crop-u18601.jpg?crc=303526477"
-          src="http://mastfiu.dadeschools.net/images/2060028-crop-u18601.jpg?crc=303526477"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060028-crop-u18601.jpg?crc=303526477"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(301.935deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18621_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060030-crop-u18621.jpg?crc=4107225493"
-          src="http://mastfiu.dadeschools.net/images/2060030-crop-u18621.jpg?crc=4107225493"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060030-crop-u18621.jpg?crc=4107225493"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(313.548deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18641_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060031-crop-u18641.jpg?crc=4088974750"
-          src="http://mastfiu.dadeschools.net/images/2060031-crop-u18641.jpg?crc=4088974750"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060031-crop-u18641.jpg?crc=4088974750"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(325.161deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18661_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060033-crop-u18661.jpg?crc=70303347"
-          src="http://mastfiu.dadeschools.net/images/2060033-crop-u18661.jpg?crc=70303347"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060033-crop-u18661.jpg?crc=70303347"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(336.774deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18681_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060034-crop-u18681.jpg?crc=82835262"
-          src="http://mastfiu.dadeschools.net/images/2060034-crop-u18681.jpg?crc=82835262"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060034-crop-u18681.jpg?crc=82835262"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(348.387deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18701_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060035-crop-u18701.jpg?crc=42303173"
-          src="http://mastfiu.dadeschools.net/images/2060035-crop-u18701.jpg?crc=42303173"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060035-crop-u18701.jpg?crc=42303173"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
+    transform that describes their position in the ring. CSS animations are
+    then used to rotate each ring, and to spin the containing element around
+    too. Note that you can still select the pictures on the ring; everything
+    remains clickable.
+  </p>
+  <p>
+    This project can be found on
+    <a href="https://github.com/EdwardGrasshopper" target="_blank">my github.</a>
+  </p>
+  <div id="stage">
+    <div id="rotate">
+      <div id="ring-1" class="ring">
+        <div class="poster" style="transform: rotateY(0deg) translateZ(516.667px);">
+          <img class="block" id="u17609_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060001-crop-u17609.jpg?crc=206681373"
+            src="http://mastfiu.dadeschools.net/images/2060001-crop-u17609.jpg?crc=206681373" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060001-crop-u17609.jpg?crc=206681373"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
         </div>
-        <div id="ring-2" class="ring">
-          <div
-            class="poster"
-            style="transform: rotateY(0deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18721_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060036-crop-u18721.jpg?crc=284695112"
-          src="http://mastfiu.dadeschools.net/images/2060036-crop-u18721.jpg?crc=284695112"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060036-crop-u18721.jpg?crc=284695112"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(11.6129deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18741_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060037-crop-u18741.jpg?crc=132647598"
-          src="http://mastfiu.dadeschools.net/images/2060037-crop-u18741.jpg?crc=132647598"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060037-crop-u18741.jpg?crc=132647598"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(23.2258deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18761_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060038-crop-u18761.jpg?crc=409163528"
-          src="http://mastfiu.dadeschools.net/images/2060038-crop-u18761.jpg?crc=409163528"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060038-crop-u18761.jpg?crc=409163528"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(34.8387deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18781_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060039-crop-u18781.jpg?crc=49805514"
-          src="http://mastfiu.dadeschools.net/images/2060039-crop-u18781.jpg?crc=49805514"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060039-crop-u18781.jpg?crc=49805514"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(46.4516deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18801_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060041-crop-u18801.jpg?crc=3766371927"
-          src="http://mastfiu.dadeschools.net/images/2060041-crop-u18801.jpg?crc=3766371927"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060041-crop-u18801.jpg?crc=3766371927"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(58.0645deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18821_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060042-crop-u18821.jpg?crc=4212498969"
-          src="http://mastfiu.dadeschools.net/images/2060042-crop-u18821.jpg?crc=4212498969"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060042-crop-u18821.jpg?crc=4212498969"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(69.6774deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18841_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060043-crop-u18841.jpg?crc=288989352"
-          src="http://mastfiu.dadeschools.net/images/2060043-crop-u18841.jpg?crc=288989352"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060043-crop-u18841.jpg?crc=288989352"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(81.2903deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18861_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060044-crop-u18861.jpg?crc=4189509536"
-          src="http://mastfiu.dadeschools.net/images/2060044-crop-u18861.jpg?crc=4189509536"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060044-crop-u18861.jpg?crc=4189509536"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(92.9032deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18881_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060045-crop-u18881.jpg?crc=470741220"
-          src="http://mastfiu.dadeschools.net/images/2060045-crop-u18881.jpg?crc=470741220"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060045-crop-u18881.jpg?crc=470741220"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(104.516deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18901_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060046-crop-u18901.jpg?crc=246454902"
-          src="http://mastfiu.dadeschools.net/images/2060046-crop-u18901.jpg?crc=246454902"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060046-crop-u18901.jpg?crc=246454902"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(116.129deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18921_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060047-crop-u18921.jpg?crc=3882381192"
-          src="http://mastfiu.dadeschools.net/images/2060047-crop-u18921.jpg?crc=3882381192"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060047-crop-u18921.jpg?crc=3882381192"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(127.742deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18941_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060048-crop-u18941.jpg?crc=330878029"
-          src="http://mastfiu.dadeschools.net/images/2060048-crop-u18941.jpg?crc=330878029"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060048-crop-u18941.jpg?crc=330878029"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(139.355deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18961_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060049-crop-u18961.jpg?crc=4271810749"
-          src="http://mastfiu.dadeschools.net/images/2060049-crop-u18961.jpg?crc=4271810749"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060049-crop-u18961.jpg?crc=4271810749"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(150.968deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u18981_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060050-crop-u18981.jpg?crc=3829680968"
-          src="http://mastfiu.dadeschools.net/images/2060050-crop-u18981.jpg?crc=3829680968"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060050-crop-u18981.jpg?crc=3829680968"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(162.581deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19001_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060051-crop-u19001.jpg?crc=102847306"
-          src="http://mastfiu.dadeschools.net/images/2060051-crop-u19001.jpg?crc=102847306"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060051-crop-u19001.jpg?crc=102847306"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(174.194deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19021_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060052-crop-u19021.jpg?crc=81274091"
-          src="http://mastfiu.dadeschools.net/images/2060052-crop-u19021.jpg?crc=81274091"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060052-crop-u19021.jpg?crc=81274091"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(185.806deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19041_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060055-crop-u19041.jpg?crc=188971722"
-          src="http://mastfiu.dadeschools.net/images/2060055-crop-u19041.jpg?crc=188971722"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060055-crop-u19041.jpg?crc=188971722"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(197.419deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19061_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060056-crop-u19061.jpg?crc=370605726"
-          src="http://mastfiu.dadeschools.net/images/2060056-crop-u19061.jpg?crc=370605726"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060056-crop-u19061.jpg?crc=370605726"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(209.032deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19081_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060057-crop-u19081.jpg?crc=71458463"
-          src="http://mastfiu.dadeschools.net/images/2060057-crop-u19081.jpg?crc=71458463"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060057-crop-u19081.jpg?crc=71458463"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(220.645deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19101_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060058-crop-u19101.jpg?crc=381204851"
-          src="http://mastfiu.dadeschools.net/images/2060058-crop-u19101.jpg?crc=381204851"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060058-crop-u19101.jpg?crc=381204851"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(232.258deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19121_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060059-crop-u19121.jpg?crc=83447986"
-          src="http://mastfiu.dadeschools.net/images/2060059-crop-u19121.jpg?crc=83447986"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060059-crop-u19121.jpg?crc=83447986"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(243.871deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19141_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060060-crop-u19141.jpg?crc=3923306175"
-          src="http://mastfiu.dadeschools.net/images/2060060-crop-u19141.jpg?crc=3923306175"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060060-crop-u19141.jpg?crc=3923306175"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(255.484deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19161_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060061-crop-u19161.jpg?crc=467431375"
-          src="http://mastfiu.dadeschools.net/images/2060061-crop-u19161.jpg?crc=467431375"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060061-crop-u19161.jpg?crc=467431375"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(267.097deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19181_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060062-crop-u19181.jpg?crc=3839187281"
-          src="http://mastfiu.dadeschools.net/images/2060062-crop-u19181.jpg?crc=3839187281"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060062-crop-u19181.jpg?crc=3839187281"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(278.71deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19201_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060064-crop-u19201.jpg?crc=3923525689"
-          src="http://mastfiu.dadeschools.net/images/2060064-crop-u19201.jpg?crc=3923525689"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060064-crop-u19201.jpg?crc=3923525689"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(290.323deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19221_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060065-crop-u19221.jpg?crc=3884406708"
-          src="http://mastfiu.dadeschools.net/images/2060065-crop-u19221.jpg?crc=3884406708"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060065-crop-u19221.jpg?crc=3884406708"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(301.935deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19241_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060066-crop-u19241.jpg?crc=276481515"
-          src="http://mastfiu.dadeschools.net/images/2060066-crop-u19241.jpg?crc=276481515"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060066-crop-u19241.jpg?crc=276481515"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(313.548deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19261_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060070-crop-u19261.jpg?crc=195448703"
-          src="http://mastfiu.dadeschools.net/images/2060070-crop-u19261.jpg?crc=195448703"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060070-crop-u19261.jpg?crc=195448703"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(325.161deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19281_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060071-crop-u19281.jpg?crc=3941326974"
-          src="http://mastfiu.dadeschools.net/images/2060071-crop-u19281.jpg?crc=3941326974"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060071-crop-u19281.jpg?crc=3941326974"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(336.774deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19301_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060072-crop-u19301.jpg?crc=3758682012"
-          src="http://mastfiu.dadeschools.net/images/2060072-crop-u19301.jpg?crc=3758682012"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060072-crop-u19301.jpg?crc=3758682012"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
-          <div
-            class="poster"
-            style="transform: rotateY(348.387deg) translateZ(516.667px);"
-          >
-          <img
-          class="block"
-          id="u19321_img"
-          data-src="http://mastfiu.dadeschools.net/images/2060073-crop-u19321.jpg?crc=4232928563"
-          src="http://mastfiu.dadeschools.net/images/2060073-crop-u19321.jpg?crc=4232928563"
-          alt=""
-          data-width="100"
-          data-height="100"
-          data-muse-src="http://mastfiu.dadeschools.net/images/2060073-crop-u19321.jpg?crc=4232928563"
-          data-widget-id="slideshowu17589"
-          style=""
-          width="100"
-          height="100"
-        />
-          </div>
+        <div class="poster" style="transform: rotateY(11.6129deg) translateZ(516.667px);">
+          <img class="block" id="u18121_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060002-crop-u18121.jpg?crc=270179016"
+            src="http://mastfiu.dadeschools.net/images/2060002-crop-u18121.jpg?crc=270179016" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060002-crop-u18121.jpg?crc=270179016"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(23.2258deg) translateZ(516.667px);">
+          <img class="block" id="u18141_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060003-crop-u18141.jpg?crc=4140046663"
+            src="http://mastfiu.dadeschools.net/images/2060003-crop-u18141.jpg?crc=4140046663" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060003-crop-u18141.jpg?crc=4140046663"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(34.8387deg) translateZ(516.667px);">
+          <img class="block" id="u18161_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060004-crop-u18161.jpg?crc=4115633752"
+            src="http://mastfiu.dadeschools.net/images/2060004-crop-u18161.jpg?crc=4115633752" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060004-crop-u18161.jpg?crc=4115633752"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(46.4516deg) translateZ(516.667px);">
+          <img class="block" id="u18181_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060005-crop-u18181.jpg?crc=4020391790"
+            src="http://mastfiu.dadeschools.net/images/2060005-crop-u18181.jpg?crc=4020391790" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060005-crop-u18181.jpg?crc=4020391790"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(58.0645deg) translateZ(516.667px);">
+          <img class="block" id="u18201_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060006-crop-u18201.jpg?crc=451000701"
+            src="http://mastfiu.dadeschools.net/images/2060006-crop-u18201.jpg?crc=451000701" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060006-crop-u18201.jpg?crc=451000701"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(69.6774deg) translateZ(516.667px);">
+          <img class="block" id="u18221_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060007-crop-u18221.jpg?crc=4071192821"
+            src="http://mastfiu.dadeschools.net/images/2060007-crop-u18221.jpg?crc=4071192821" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060007-crop-u18221.jpg?crc=4071192821"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(81.2903deg) translateZ(516.667px);">
+          <img class="block" id="u18241_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060008-crop-u18241.jpg?crc=4042438795"
+            src="http://mastfiu.dadeschools.net/images/2060008-crop-u18241.jpg?crc=4042438795" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060008-crop-u18241.jpg?crc=4042438795"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(92.9032deg) translateZ(516.667px);">
+          <img class="block" id="u18261_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060009-crop-u18261.jpg?crc=349101498"
+            src="http://mastfiu.dadeschools.net/images/2060009-crop-u18261.jpg?crc=349101498" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060009-crop-u18261.jpg?crc=349101498"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(104.516deg) translateZ(516.667px);">
+          <img class="block" id="u18281_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060010-crop-u18281.jpg?crc=3942958679"
+            src="http://mastfiu.dadeschools.net/images/2060010-crop-u18281.jpg?crc=3942958679" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060010-crop-u18281.jpg?crc=3942958679"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(116.129deg) translateZ(516.667px);">
+          <img class="block" id="u18301_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060012-crop-u18301.jpg?crc=3797951026"
+            src="http://mastfiu.dadeschools.net/images/2060012-crop-u18301.jpg?crc=3797951026" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060012-crop-u18301.jpg?crc=3797951026"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(127.742deg) translateZ(516.667px);">
+          <img class="block" id="u18321_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060013-crop-u18321.jpg?crc=4063520524"
+            src="http://mastfiu.dadeschools.net/images/2060013-crop-u18321.jpg?crc=4063520524" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060013-crop-u18321.jpg?crc=4063520524"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(139.355deg) translateZ(516.667px);">
+          <img class="block" id="u18341_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060014-crop-u18341.jpg?crc=189994473"
+            src="http://mastfiu.dadeschools.net/images/2060014-crop-u18341.jpg?crc=189994473" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060014-crop-u18341.jpg?crc=189994473"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(150.968deg) translateZ(516.667px);">
+          <img class="block" id="u18361_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060015-crop-u18361.jpg?crc=250933679"
+            src="http://mastfiu.dadeschools.net/images/2060015-crop-u18361.jpg?crc=250933679" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060015-crop-u18361.jpg?crc=250933679"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(162.581deg) translateZ(516.667px);">
+          <img class="block" id="u18381_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060016-crop-u18381.jpg?crc=4243793077"
+            src="http://mastfiu.dadeschools.net/images/2060016-crop-u18381.jpg?crc=4243793077" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060016-crop-u18381.jpg?crc=4243793077"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(174.194deg) translateZ(516.667px);">
+          <img class="block" id="u18401_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060017-crop-u18401.jpg?crc=4040187597"
+            src="http://mastfiu.dadeschools.net/images/2060017-crop-u18401.jpg?crc=4040187597" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060017-crop-u18401.jpg?crc=4040187597"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(185.806deg) translateZ(516.667px);">
+          <img class="block" id="u18421_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060018-crop-u18421.jpg?crc=4203836874"
+            src="http://mastfiu.dadeschools.net/images/2060018-crop-u18421.jpg?crc=4203836874" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060018-crop-u18421.jpg?crc=4203836874"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(197.419deg) translateZ(516.667px);">
+          <img class="block" id="u18441_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060019-crop-u18441.jpg?crc=366407717"
+            src="http://mastfiu.dadeschools.net/images/2060019-crop-u18441.jpg?crc=366407717" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060019-crop-u18441.jpg?crc=366407717"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(209.032deg) translateZ(516.667px);">
+          <img class="block" id="u18461_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060020-crop-u18461.jpg?crc=3841045738"
+            src="http://mastfiu.dadeschools.net/images/2060020-crop-u18461.jpg?crc=3841045738" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060020-crop-u18461.jpg?crc=3841045738"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(220.645deg) translateZ(516.667px);">
+          <img class="block" id="u18481_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060021-crop-u18481.jpg?crc=16343325"
+            src="http://mastfiu.dadeschools.net/images/2060021-crop-u18481.jpg?crc=16343325" alt="" data-width="100"
+            data-height="100" data-muse-src="http://mastfiu.dadeschools.net/images/2060021-crop-u18481.jpg?crc=16343325"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(232.258deg) translateZ(516.667px);">
+          <img class="block" id="u18501_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060022-crop-u18501.jpg?crc=452310828"
+            src="http://mastfiu.dadeschools.net/images/2060022-crop-u18501.jpg?crc=452310828" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060022-crop-u18501.jpg?crc=452310828"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(243.871deg) translateZ(516.667px);">
+          <img class="block" id="u18521_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060023-crop-u18521.jpg?crc=3863286488"
+            src="http://mastfiu.dadeschools.net/images/2060023-crop-u18521.jpg?crc=3863286488" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060023-crop-u18521.jpg?crc=3863286488"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(255.484deg) translateZ(516.667px);">
+          <img class="block" id="u18541_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060024-crop-u18541.jpg?crc=423376621"
+            src="http://mastfiu.dadeschools.net/images/2060024-crop-u18541.jpg?crc=423376621" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060024-crop-u18541.jpg?crc=423376621"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(267.097deg) translateZ(516.667px);">
+          <img class="block" id="u18561_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060026-crop-u18561.jpg?crc=4104295946"
+            src="http://mastfiu.dadeschools.net/images/2060026-crop-u18561.jpg?crc=4104295946" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060026-crop-u18561.jpg?crc=4104295946"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(278.71deg) translateZ(516.667px);">
+          <img class="block" id="u18581_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060027-crop-u18581.jpg?crc=442576626"
+            src="http://mastfiu.dadeschools.net/images/2060027-crop-u18581.jpg?crc=442576626" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060027-crop-u18581.jpg?crc=442576626"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(290.323deg) translateZ(516.667px);">
+          <img class="block" id="u18601_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060028-crop-u18601.jpg?crc=303526477"
+            src="http://mastfiu.dadeschools.net/images/2060028-crop-u18601.jpg?crc=303526477" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060028-crop-u18601.jpg?crc=303526477"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(301.935deg) translateZ(516.667px);">
+          <img class="block" id="u18621_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060030-crop-u18621.jpg?crc=4107225493"
+            src="http://mastfiu.dadeschools.net/images/2060030-crop-u18621.jpg?crc=4107225493" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060030-crop-u18621.jpg?crc=4107225493"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(313.548deg) translateZ(516.667px);">
+          <img class="block" id="u18641_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060031-crop-u18641.jpg?crc=4088974750"
+            src="http://mastfiu.dadeschools.net/images/2060031-crop-u18641.jpg?crc=4088974750" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060031-crop-u18641.jpg?crc=4088974750"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(325.161deg) translateZ(516.667px);">
+          <img class="block" id="u18661_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060033-crop-u18661.jpg?crc=70303347"
+            src="http://mastfiu.dadeschools.net/images/2060033-crop-u18661.jpg?crc=70303347" alt="" data-width="100"
+            data-height="100" data-muse-src="http://mastfiu.dadeschools.net/images/2060033-crop-u18661.jpg?crc=70303347"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(336.774deg) translateZ(516.667px);">
+          <img class="block" id="u18681_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060034-crop-u18681.jpg?crc=82835262"
+            src="http://mastfiu.dadeschools.net/images/2060034-crop-u18681.jpg?crc=82835262" alt="" data-width="100"
+            data-height="100" data-muse-src="http://mastfiu.dadeschools.net/images/2060034-crop-u18681.jpg?crc=82835262"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(348.387deg) translateZ(516.667px);">
+          <img class="block" id="u18701_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060035-crop-u18701.jpg?crc=42303173"
+            src="http://mastfiu.dadeschools.net/images/2060035-crop-u18701.jpg?crc=42303173" alt="" data-width="100"
+            data-height="100" data-muse-src="http://mastfiu.dadeschools.net/images/2060035-crop-u18701.jpg?crc=42303173"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+      </div>
+      <div id="ring-2" class="ring">
+        <div class="poster" style="transform: rotateY(0deg) translateZ(516.667px);">
+          <img class="block" id="u18721_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060036-crop-u18721.jpg?crc=284695112"
+            src="http://mastfiu.dadeschools.net/images/2060036-crop-u18721.jpg?crc=284695112" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060036-crop-u18721.jpg?crc=284695112"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(11.6129deg) translateZ(516.667px);">
+          <img class="block" id="u18741_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060037-crop-u18741.jpg?crc=132647598"
+            src="http://mastfiu.dadeschools.net/images/2060037-crop-u18741.jpg?crc=132647598" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060037-crop-u18741.jpg?crc=132647598"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(23.2258deg) translateZ(516.667px);">
+          <img class="block" id="u18761_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060038-crop-u18761.jpg?crc=409163528"
+            src="http://mastfiu.dadeschools.net/images/2060038-crop-u18761.jpg?crc=409163528" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060038-crop-u18761.jpg?crc=409163528"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(34.8387deg) translateZ(516.667px);">
+          <img class="block" id="u18781_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060039-crop-u18781.jpg?crc=49805514"
+            src="http://mastfiu.dadeschools.net/images/2060039-crop-u18781.jpg?crc=49805514" alt="" data-width="100"
+            data-height="100" data-muse-src="http://mastfiu.dadeschools.net/images/2060039-crop-u18781.jpg?crc=49805514"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(46.4516deg) translateZ(516.667px);">
+          <img class="block" id="u18801_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060041-crop-u18801.jpg?crc=3766371927"
+            src="http://mastfiu.dadeschools.net/images/2060041-crop-u18801.jpg?crc=3766371927" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060041-crop-u18801.jpg?crc=3766371927"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(58.0645deg) translateZ(516.667px);">
+          <img class="block" id="u18821_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060042-crop-u18821.jpg?crc=4212498969"
+            src="http://mastfiu.dadeschools.net/images/2060042-crop-u18821.jpg?crc=4212498969" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060042-crop-u18821.jpg?crc=4212498969"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(69.6774deg) translateZ(516.667px);">
+          <img class="block" id="u18841_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060043-crop-u18841.jpg?crc=288989352"
+            src="http://mastfiu.dadeschools.net/images/2060043-crop-u18841.jpg?crc=288989352" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060043-crop-u18841.jpg?crc=288989352"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(81.2903deg) translateZ(516.667px);">
+          <img class="block" id="u18861_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060044-crop-u18861.jpg?crc=4189509536"
+            src="http://mastfiu.dadeschools.net/images/2060044-crop-u18861.jpg?crc=4189509536" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060044-crop-u18861.jpg?crc=4189509536"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(92.9032deg) translateZ(516.667px);">
+          <img class="block" id="u18881_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060045-crop-u18881.jpg?crc=470741220"
+            src="http://mastfiu.dadeschools.net/images/2060045-crop-u18881.jpg?crc=470741220" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060045-crop-u18881.jpg?crc=470741220"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(104.516deg) translateZ(516.667px);">
+          <img class="block" id="u18901_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060046-crop-u18901.jpg?crc=246454902"
+            src="http://mastfiu.dadeschools.net/images/2060046-crop-u18901.jpg?crc=246454902" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060046-crop-u18901.jpg?crc=246454902"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(116.129deg) translateZ(516.667px);">
+          <img class="block" id="u18921_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060047-crop-u18921.jpg?crc=3882381192"
+            src="http://mastfiu.dadeschools.net/images/2060047-crop-u18921.jpg?crc=3882381192" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060047-crop-u18921.jpg?crc=3882381192"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(127.742deg) translateZ(516.667px);">
+          <img class="block" id="u18941_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060048-crop-u18941.jpg?crc=330878029"
+            src="http://mastfiu.dadeschools.net/images/2060048-crop-u18941.jpg?crc=330878029" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060048-crop-u18941.jpg?crc=330878029"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(139.355deg) translateZ(516.667px);">
+          <img class="block" id="u18961_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060049-crop-u18961.jpg?crc=4271810749"
+            src="http://mastfiu.dadeschools.net/images/2060049-crop-u18961.jpg?crc=4271810749" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060049-crop-u18961.jpg?crc=4271810749"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(150.968deg) translateZ(516.667px);">
+          <img class="block" id="u18981_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060050-crop-u18981.jpg?crc=3829680968"
+            src="http://mastfiu.dadeschools.net/images/2060050-crop-u18981.jpg?crc=3829680968" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060050-crop-u18981.jpg?crc=3829680968"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(162.581deg) translateZ(516.667px);">
+          <img class="block" id="u19001_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060051-crop-u19001.jpg?crc=102847306"
+            src="http://mastfiu.dadeschools.net/images/2060051-crop-u19001.jpg?crc=102847306" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060051-crop-u19001.jpg?crc=102847306"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(174.194deg) translateZ(516.667px);">
+          <img class="block" id="u19021_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060052-crop-u19021.jpg?crc=81274091"
+            src="http://mastfiu.dadeschools.net/images/2060052-crop-u19021.jpg?crc=81274091" alt="" data-width="100"
+            data-height="100" data-muse-src="http://mastfiu.dadeschools.net/images/2060052-crop-u19021.jpg?crc=81274091"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(185.806deg) translateZ(516.667px);">
+          <img class="block" id="u19041_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060055-crop-u19041.jpg?crc=188971722"
+            src="http://mastfiu.dadeschools.net/images/2060055-crop-u19041.jpg?crc=188971722" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060055-crop-u19041.jpg?crc=188971722"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(197.419deg) translateZ(516.667px);">
+          <img class="block" id="u19061_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060056-crop-u19061.jpg?crc=370605726"
+            src="http://mastfiu.dadeschools.net/images/2060056-crop-u19061.jpg?crc=370605726" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060056-crop-u19061.jpg?crc=370605726"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(209.032deg) translateZ(516.667px);">
+          <img class="block" id="u19081_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060057-crop-u19081.jpg?crc=71458463"
+            src="http://mastfiu.dadeschools.net/images/2060057-crop-u19081.jpg?crc=71458463" alt="" data-width="100"
+            data-height="100" data-muse-src="http://mastfiu.dadeschools.net/images/2060057-crop-u19081.jpg?crc=71458463"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(220.645deg) translateZ(516.667px);">
+          <img class="block" id="u19101_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060058-crop-u19101.jpg?crc=381204851"
+            src="http://mastfiu.dadeschools.net/images/2060058-crop-u19101.jpg?crc=381204851" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060058-crop-u19101.jpg?crc=381204851"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(232.258deg) translateZ(516.667px);">
+          <img class="block" id="u19121_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060059-crop-u19121.jpg?crc=83447986"
+            src="http://mastfiu.dadeschools.net/images/2060059-crop-u19121.jpg?crc=83447986" alt="" data-width="100"
+            data-height="100" data-muse-src="http://mastfiu.dadeschools.net/images/2060059-crop-u19121.jpg?crc=83447986"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(243.871deg) translateZ(516.667px);">
+          <img class="block" id="u19141_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060060-crop-u19141.jpg?crc=3923306175"
+            src="http://mastfiu.dadeschools.net/images/2060060-crop-u19141.jpg?crc=3923306175" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060060-crop-u19141.jpg?crc=3923306175"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(255.484deg) translateZ(516.667px);">
+          <img class="block" id="u19161_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060061-crop-u19161.jpg?crc=467431375"
+            src="http://mastfiu.dadeschools.net/images/2060061-crop-u19161.jpg?crc=467431375" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060061-crop-u19161.jpg?crc=467431375"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(267.097deg) translateZ(516.667px);">
+          <img class="block" id="u19181_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060062-crop-u19181.jpg?crc=3839187281"
+            src="http://mastfiu.dadeschools.net/images/2060062-crop-u19181.jpg?crc=3839187281" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060062-crop-u19181.jpg?crc=3839187281"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(278.71deg) translateZ(516.667px);">
+          <img class="block" id="u19201_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060064-crop-u19201.jpg?crc=3923525689"
+            src="http://mastfiu.dadeschools.net/images/2060064-crop-u19201.jpg?crc=3923525689" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060064-crop-u19201.jpg?crc=3923525689"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(290.323deg) translateZ(516.667px);">
+          <img class="block" id="u19221_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060065-crop-u19221.jpg?crc=3884406708"
+            src="http://mastfiu.dadeschools.net/images/2060065-crop-u19221.jpg?crc=3884406708" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060065-crop-u19221.jpg?crc=3884406708"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(301.935deg) translateZ(516.667px);">
+          <img class="block" id="u19241_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060066-crop-u19241.jpg?crc=276481515"
+            src="http://mastfiu.dadeschools.net/images/2060066-crop-u19241.jpg?crc=276481515" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060066-crop-u19241.jpg?crc=276481515"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(313.548deg) translateZ(516.667px);">
+          <img class="block" id="u19261_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060070-crop-u19261.jpg?crc=195448703"
+            src="http://mastfiu.dadeschools.net/images/2060070-crop-u19261.jpg?crc=195448703" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060070-crop-u19261.jpg?crc=195448703"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(325.161deg) translateZ(516.667px);">
+          <img class="block" id="u19281_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060071-crop-u19281.jpg?crc=3941326974"
+            src="http://mastfiu.dadeschools.net/images/2060071-crop-u19281.jpg?crc=3941326974" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060071-crop-u19281.jpg?crc=3941326974"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(336.774deg) translateZ(516.667px);">
+          <img class="block" id="u19301_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060072-crop-u19301.jpg?crc=3758682012"
+            src="http://mastfiu.dadeschools.net/images/2060072-crop-u19301.jpg?crc=3758682012" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060072-crop-u19301.jpg?crc=3758682012"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
+        </div>
+        <div class="poster" style="transform: rotateY(348.387deg) translateZ(516.667px);">
+          <img class="block" id="u19321_img"
+            data-src="http://mastfiu.dadeschools.net/images/2060073-crop-u19321.jpg?crc=4232928563"
+            src="http://mastfiu.dadeschools.net/images/2060073-crop-u19321.jpg?crc=4232928563" alt="" data-width="100"
+            data-height="100"
+            data-muse-src="http://mastfiu.dadeschools.net/images/2060073-crop-u19321.jpg?crc=4232928563"
+            data-widget-id="slideshowu17589" style="" width="100" height="100" />
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
